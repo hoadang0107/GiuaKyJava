@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="444.0" prefWidth="612.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="BTreeController">
+   <top>
+      <HBox prefHeight="57.0" prefWidth="612.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtfield" prefHeight="34.0" prefWidth="160.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#insertAction" prefHeight="34.0" prefWidth="80.0" text="Insert">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnContain" mnemonicParsing="false" onAction="#containAction" prefHeight="34.0" prefWidth="80.0" text="Contains">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btndel" mnemonicParsing="false" onAction="#delAction" prefHeight="34.0" prefWidth="80.0" text="Delete">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <bottom>
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Back" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="4.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <center>
+      <Pane prefHeight="353.0" prefWidth="612.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

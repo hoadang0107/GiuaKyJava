@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="470.0" prefWidth="615.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="LinkedListController">
+   <top>
+      <HBox prefHeight="71.0" prefWidth="615.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField prefHeight="34.0" prefWidth="194.0">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="btnAppend" mnemonicParsing="false" onAction="#appendAction" prefHeight="34.0" prefWidth="80.0" text="append">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnPrepend" mnemonicParsing="false" onAction="#prependAction" prefHeight="34.0" prefWidth="80.0" text="prepend">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteAction" prefHeight="34.0" prefWidth="80.0" text="delete" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnBack" layoutX="566.0" layoutY="363.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="25.0" prefWidth="42.0" text="Back">
+               <padding>
+                  <Insets bottom="2.0" />
+               </padding>
+            </Button>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
