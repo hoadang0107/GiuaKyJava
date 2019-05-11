@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane prefHeight="470.0" prefWidth="615.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="LinkedListController">
+<BorderPane prefHeight="470.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="application.linkedlist.LinkedListController">
    <top>
       <HBox prefHeight="71.0" prefWidth="615.0" BorderPane.alignment="CENTER">
          <children>
@@ -33,15 +33,18 @@
          </BorderPane.margin>
       </HBox>
    </top>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#backOnAction" prefHeight="30.0" prefWidth="75.0" text="Back" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="btnBack" layoutX="566.0" layoutY="363.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="25.0" prefWidth="42.0" text="Back">
-               <padding>
-                  <Insets bottom="2.0" />
-               </padding>
-            </Button>
-         </children>
-      </Pane>
+      <AnchorPane prefHeight="337.0" prefWidth="615.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </AnchorPane>
    </center>
 </BorderPane>

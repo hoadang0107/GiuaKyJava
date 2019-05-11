@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane prefHeight="444.0" prefWidth="612.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="BTreeController">
+<BorderPane prefHeight="444.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.btree.BTreeController">
    <top>
       <HBox prefHeight="57.0" prefWidth="612.0" BorderPane.alignment="CENTER">
          <children>
@@ -48,7 +47,7 @@
       </HBox>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Back" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#backAction" prefHeight="25.0" prefWidth="50.0" text="Back" BorderPane.alignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>

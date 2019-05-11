@@ -1,5 +1,8 @@
 package application;
 	
+import application.btree.BtreeDM;
+import application.linkedlist.LLDM;
+import application.linkedlist.LinkedListController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -28,6 +31,17 @@ public class Main extends Application {
 		StackDM stack = new StackDM();
 		stack.start(primaryStage);
 		
+	}
+	public static void startLinkedList() throws Exception {
+		
+		LLDM ll = new LLDM();
+		ll.start(primaryStage);
+		
+	}
+	
+	public static void startBTree() throws Exception {
+		BtreeDM tree = new BtreeDM();
+		tree.start(primaryStage);
 	}
 	
 	public static void main(String[] args) {

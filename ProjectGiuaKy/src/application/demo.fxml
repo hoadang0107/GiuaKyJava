@@ -12,7 +12,7 @@
             <TextField fx:id="txt1" prefHeight="30.0" prefWidth="150.0" />
             <Button mnemonicParsing="false" onAction="#pushOnAction" prefHeight="30.0" prefWidth="75.0" text="Push" />
             <Button mnemonicParsing="false" onAction="#popOnAction" prefHeight="30.0" prefWidth="75.0" text="Pop" />
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="Peak" />
+            <Button mnemonicParsing="false" onAction="#peakAction" prefHeight="30.0" prefWidth="75.0" text="Peak" />
             <Button mnemonicParsing="false" onAction="#backAction" prefHeight="30.0" prefWidth="75.0" text="Back" />
          </children>
       </HBox>

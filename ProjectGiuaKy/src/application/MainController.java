@@ -22,11 +22,14 @@ public class MainController implements Initializable{
 		
 	}
 	@FXML
-	public void showLinkedList() {
+	public void showLinkedList() throws Exception {
+		Main.startLinkedList();
 		
 	}
 	@FXML
-	public void showBTree(){
+	public void showBTree() throws Exception{
+		
+		Main.startBTree();
 		
 	}
 }

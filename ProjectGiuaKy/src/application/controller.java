@@ -37,6 +37,7 @@ public class controller {
 			r.setHeight(30);
 			r.setFill(Color.MEDIUMSLATEBLUE);
 			r.text.setFill(Color.WHITE);
+			r.text.setStyle("-fx-font:15 arial");
 			arr.add(r);
 			setPoint();
 			txt1.setText(null);
@@ -44,11 +45,31 @@ public class controller {
 		}
 	}
 	
+	@FXML
+	public void peakAction(ActionEvent event) {
+
+		String s = stack.peak();
+		RecArr r = new RecArr(new Text(String.valueOf(s)));
+		r.setWidth(75);
+		r.setHeight(30);
+		r.setFill(Color.GREENYELLOW);
+		r.text.setFill(Color.RED);
+		r.text.setStyle("-fx-font:15 arial");
+		
+		r.setX(405);
+		r.setY(300);
+		r.text.setX(435);
+		r.text.setY(320);
+		txt1.setText(null);
+		pane.getChildren().addAll(r, r.text);
+
+	}
+	
 	public void setPoint() {
 		for(RecArr r: arr) {
 			r.setX(250);
 			r.setY(300- arr.indexOf(r)*40);
-			r.text.setX(285);
+			r.text.setX(280);
 			r.text.setY(320- arr.indexOf(r)*40);
 		}
 	}
