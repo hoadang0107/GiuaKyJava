@@ -1,30 +1,40 @@
 package application.linkedlist;
 
+import javafx.scene.control.Label;
+
 public class FLinkedList {
-
-	
-
 	protected Node head;
+	private int count = 0;
+
+	public int getCount() {
+
+		Node current = head;
+		if (current == null) {
+			return 0;
+		}
+		while (current != null) {
+			count++;
+			current = current.next;
+		}
+		return count;
+
+	}
+
+
 
 	// Them phan tu vao cuoi ds
-	public void append(String data) {
+	public void append(Label label,String data) {
 		if (head == null) {
-			head = new Node(data);
+			head = new Node(label,data);
 			return;
 		}
 		Node current = head;
 		while (current.next != null) {
 			current = current.next;
 		}
-		current.next = new Node(data);
+		current.next = new Node(label,data);
 	}
 	
-	public FLinkedList(String ...arr) {
-		super();
-		for(int i =0; i < arr.length; i++) {
-			append(arr[i]);
-		}
-	}
 	
 	public boolean isEmpty() {
 		if(head == null) return true;

@@ -1,5 +1,7 @@
 package application.linkedlist;
 
+import javafx.scene.control.Label;
+
 public class MyLinkedList extends FLinkedList{
 	
 	public void deleteWithValue(String data) {
@@ -20,17 +22,13 @@ public class MyLinkedList extends FLinkedList{
 	}
 	
 	// Them phan tu vao dau ds
-		public void prepend(String data) {
+		public void prepend(Label lb, String data) {
 
-			Node nHead = new Node(data);
+			Node nHead = new Node(lb, data);
 			nHead.next = head;
 			head = nHead;
 		}
 
-		public MyLinkedList(String ... arr) {
-			super(arr);
-			// TODO Auto-generated constructor stub
-		}
 
 		public MyLinkedList() {
 			super();

@@ -7,8 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class MainController implements Initializable{
-	
-	private Main main;
+
 	
 
 	@Override
@@ -18,7 +17,7 @@ public class MainController implements Initializable{
 	}
 	@FXML
 	public void showStack() throws Exception {
-		main.startStack();
+		Main.startStack();
 		
 	}
 	@FXML

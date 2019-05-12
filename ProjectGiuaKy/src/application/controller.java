@@ -30,7 +30,7 @@ public class controller {
 	public void pushOnAction(ActionEvent e) {
 		String t = txt1.getText();
 		if (t != null) {
-			stack.append(t);
+			stack.append(null,t);
 
 			RecArr r = new RecArr(new Text(String.valueOf(t)));
 			r.setWidth(80);

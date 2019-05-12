@@ -1,25 +1,8 @@
 package application.linkedlist;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 public class Stack extends FLinkedList {
 
-	private int count = 0;
-
-	public int getCount() {
-
-		Node current = head;
-		if (current == null) {
-			return 0;
-		}
-		while (current != null) {
-			count++;
-			current = current.next;
-		}
-		return count;
-
-	}
 
 	public String pop() {
 
@@ -52,11 +35,6 @@ public class Stack extends FLinkedList {
 
 		}
 
-	}
-
-	public Stack(String... arr) {
-		super(arr);
-		// TODO Auto-generated constructor stub
 	}
 
 }
