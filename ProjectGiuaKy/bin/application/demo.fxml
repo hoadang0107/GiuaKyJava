@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -18,6 +19,13 @@
       </HBox>
    </bottom>
    <center>
-      <Pane fx:id="pane" prefHeight="350.0" prefWidth="627.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="pane" prefHeight="350.0" prefWidth="627.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="labl" layoutX="2.0" layoutY="1.0" prefHeight="30.0" prefWidth="161.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
    </center>
 </BorderPane>

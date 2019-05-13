@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -23,6 +24,7 @@ public class controller {
 	@FXML private BorderPane bPane;
 	@FXML private Pane pane;
 	@FXML private TextField txt1; 
+	@FXML private Label labl;
 	Stack stack = new Stack(); 
 	List<RecArr> arr = new ArrayList<RecArr>();
 	
@@ -42,26 +44,16 @@ public class controller {
 			setPoint();
 			txt1.setText(null);
 			pane.getChildren().addAll(r, r.text);
+			labl.setText("");
 		}
 	}
 	
 	@FXML
 	public void peakAction(ActionEvent event) {
-
+		if(!stack.isEmpty()) {
 		String s = stack.peak();
-		RecArr r = new RecArr(new Text(String.valueOf(s)));
-		r.setWidth(75);
-		r.setHeight(30);
-		r.setFill(Color.GREENYELLOW);
-		r.text.setFill(Color.RED);
-		r.text.setStyle("-fx-font:15 arial");
-		
-		r.setX(405);
-		r.setY(300);
-		r.text.setX(435);
-		r.text.setY(320);
-		txt1.setText(null);
-		pane.getChildren().addAll(r, r.text);
+		labl.setText("Peak element: "+s);
+		}
 
 	}
 	
@@ -69,7 +61,7 @@ public class controller {
 		for(RecArr r: arr) {
 			r.setX(250);
 			r.setY(300- arr.indexOf(r)*40);
-			r.text.setX(280);
+			r.text.setX(285);
 			r.text.setY(320- arr.indexOf(r)*40);
 		}
 	}
@@ -77,9 +69,10 @@ public class controller {
 	
 	@FXML public void popOnAction(ActionEvent e) {
 		if(stack.isEmpty() == false) {
-		stack.pop();
+		String s = stack.pop();
 		pane.getChildren().removeAll(arr.get(arr.size()-1),arr.get(arr.size()-1).text);
 		arr.remove(arr.size()-1);
+		labl.setText("Pop element: "+s);
 		}else {
 			Alert alert= new Alert(Alert.AlertType.INFORMATION,"Stack trống",ButtonType.OK);
 			alert.showAndWait()
