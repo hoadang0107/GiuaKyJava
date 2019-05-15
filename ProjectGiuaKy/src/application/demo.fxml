@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="bPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller">
+<BorderPane fx:id="bPane" prefHeight="424.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller">
    <bottom>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
@@ -19,13 +19,13 @@
       </HBox>
    </bottom>
    <center>
-      <Pane fx:id="pane" prefHeight="350.0" prefWidth="627.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="pane" prefHeight="340.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="labl" layoutX="2.0" layoutY="1.0" prefHeight="30.0" prefWidth="161.0">
+            <Label fx:id="labl" layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="147.0">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
-         </children></Pane>
+         </children></AnchorPane>
    </center>
 </BorderPane>

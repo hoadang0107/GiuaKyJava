@@ -3,6 +3,7 @@ package application.linkedlist;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,109 +20,127 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class LinkedListController {
-	@FXML private AnchorPane anchor;
-	@FXML TextField textf;
-	@FXML Label lbHead;
-	
+	@FXML
+	private AnchorPane anchor;
+	@FXML
+	TextField textf;
+	Label lbHead,lbNull;
+
 	private MyLinkedList list = new MyLinkedList();
-	
+
 	private double x, y;
 	private int ap = 0, pre = 1;
 	private Arrow arrow;
+	private List<Arrow> arr = new ArrayList<Arrow>();
+	private List<Label>listLabel = new ArrayList<Label>();
 
 	@FXML
 	public void backOnAction(ActionEvent event) throws Exception {
-		
+
 		LLDM.startMain();
 	}
 
 	@FXML
 	public void appendAction(ActionEvent event) {
-		lbHead.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-		x = anchor.getPrefWidth();
-		y = anchor.getPrefHeight();
+		
 		String s = textf.getText();
-		if(s != null) {
-			
+		if (s.compareTo("") != 0) {
+
 			Label lb = new Label();
 			lb.setText(s);
 			lb.setPrefSize(65, 34);
 			lb.setAlignment(Pos.CENTER);
 			lb.setFont(new Font("Arial", 15));
 			lb.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-			
-			AnchorPane.setTopAnchor(lb,  y/2-17);
-			AnchorPane.setLeftAnchor(lb, x/2-30+ap*120);
-			if(list.isEmpty()) {
-				arrow = new Arrow(265,61,y/2-17,x/2);
-			}
-			if(!list.isEmpty()&& ap > 0) {
-				Arrow arrow = new Arrow(x/2+(ap-1)*120+35,y/2,x/2+ap*120-30,y/2);
-				anchor.getChildren().add(arrow);
-			}
-			if(!list.isEmpty()&& pre > 1 && ap == 0) {
-				Arrow arrow = new Arrow(x/2-pre*120+35,y/2,x/2-30,y/2);
-				anchor.getChildren().add(arrow);
-			}
-			if(list.isEmpty()) {
-				arrow = new Arrow(265,55,x/2,y/2-17);
-				anchor.getChildren().add(arrow);
-			}
-			ap++;
-			list.append(lb,s);
-			anchor.getChildren().add(lb);
+			list.append(lb, s);
+			draw();
 			textf.setText("");
-			
 		}
+
+	}
+
+	public void draw() {
+		double h = anchor.getPrefHeight();
+		double x, y;
+		x = 20.0;
+		y = h / 2 - 17;
+		Node current = list.head;
+		anchor.getChildren().removeAll(listLabel);
+		anchor.getChildren().removeAll(arr);
+		anchor.getChildren().removeAll(lbHead,lbNull);
+		listLabel.clear();
+		arr.clear();
+		if (current != null) {
+			lbHead = new Label();
+			lbHead.setText("Head");
+			lbHead.setPrefSize(65, 34);
+			lbHead.setAlignment(Pos.CENTER);
+			lbHead.setFont(new Font("Arial", 14));
+			lbHead.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
+			lbHead.setText("Head");
+			AnchorPane.setTopAnchor(lbHead, y);
+			AnchorPane.setLeftAnchor(lbHead, x);
+			anchor.getChildren().add(lbHead);
+		
+		while (current != null) {
+			arrow = new Arrow(x + 65, y + 17, x + 125, y + 17);
+			arr.add(arrow);
+			x = x + 125;
+			listLabel.add(current.label);
+			AnchorPane.setTopAnchor(current.label, y);
+			AnchorPane.setLeftAnchor(current.label, x);
+			anchor.getChildren().addAll(arrow, current.label);
+			current = current.next;
+		}
+		arrow = new Arrow(x + 65, y + 17, x + 125, y + 17);
+		arr.add(arrow);
+		lbNull = new Label();
+		lbNull.setText("Head");
+		lbNull.setAlignment(Pos.CENTER);
+		lbNull.setFont(new Font("Arial", 14));
+		lbNull.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
+		lbNull.setText("NULL");
+		lbNull.setPrefSize(65, 34);
+		AnchorPane.setTopAnchor(lbNull, y);
+		AnchorPane.setLeftAnchor(lbNull, x+125);
+		anchor.getChildren().addAll(arrow,lbNull);
+		}
+
 	}
 
 	@FXML
 	public void prependAction(ActionEvent event) {
-		
-		lbHead.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-		
-		x = anchor.getPrefWidth();
-		y = anchor.getPrefHeight();
+
+
 		String s = textf.getText();
-		if(s != null) {
-			
+		if (s.compareTo("") != 0) {
 			Label lb = new Label();
 			lb.setText(s);
 			lb.setPrefSize(65, 34);
 			lb.setAlignment(Pos.CENTER);
 			lb.setFont(new Font("Arial", 15));
 			lb.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-			
-			AnchorPane.setTopAnchor(lb,  y/2-17);
-			AnchorPane.setLeftAnchor(lb, x/2-30-pre*120);
-			if(!list.isEmpty()) {
-				Arrow arrow = new Arrow(x/2-pre*120+35,y/2,x/2-(pre-1)*120-30,y/2);
-				anchor.getChildren().add(arrow);
-			}
-			if(arrow != null) {
-				anchor.getChildren().remove(arrow);
-			}
-			arrow = new Arrow(265,55,x/2-pre*120,y/2-17);
-			anchor.getChildren().add(arrow);
-			pre++;
-			list.prepend(lb,s);
-			anchor.getChildren().add(lb);
+			list.prepend(lb, s);
+			draw();
 			textf.setText("");
-			
-		}
 
+		}
 
 	}
 
 	@FXML
 	public void deleteAction(ActionEvent event) {
-
-		x = anchor.getPrefWidth();
-		y = anchor.getPrefHeight();
 		String s = textf.getText();
-		
+		if (s.compareTo("") != 0) {
+			list.deleteWithValue(s);
+			/*MyTask task = new MyTask();
+			Timer timer = new Timer();
+			timer.schedule(task, 5000);
+			*/
+			draw();
+			textf.setText("");
+		}
 
 	}
-	
-	
+
 }

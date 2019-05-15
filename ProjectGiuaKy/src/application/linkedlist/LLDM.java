@@ -17,7 +17,7 @@ public class LLDM extends Application {
 		try {
 			this.primaryStage = primaryStage;
 			Parent root = FXMLLoader.load(getClass().getResource("LinkedListDemo.fxml"));
-			primaryStage.setTitle("My Application");
+			primaryStage.setTitle("Linked List");
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 

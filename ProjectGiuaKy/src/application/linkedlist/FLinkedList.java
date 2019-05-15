@@ -4,10 +4,9 @@ import javafx.scene.control.Label;
 
 public class FLinkedList {
 	protected Node head;
-	private int count = 0;
 
 	public int getCount() {
-
+		int count = 0;
 		Node current = head;
 		if (current == null) {
 			return 0;
@@ -20,7 +19,7 @@ public class FLinkedList {
 
 	}
 
-
+	
 
 	// Them phan tu vao cuoi ds
 	public void append(Label label,String data) {

@@ -1,6 +1,5 @@
 package application;
-	
-import application.btree.BtreeDM;
+
 import application.linkedlist.LLDM;
 import application.linkedlist.LinkedListController;
 import javafx.application.Application;
@@ -18,7 +17,7 @@ public class Main extends Application {
 		try {
 			this.primaryStage= primaryStage;
 			Parent root = FXMLLoader.load(getClass().getResource("/application/MainActivity.fxml"));
-			primaryStage.setTitle("My Application");
+			primaryStage.setTitle("Main Menu");
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 		} catch(Exception e) {
@@ -39,10 +38,10 @@ public class Main extends Application {
 		
 	}
 	
-	public static void startBTree() throws Exception {
+	/*public static void startBTree() throws Exception {
 		BtreeDM tree = new BtreeDM();
 		tree.start(primaryStage);
-	}
+	}*/
 	
 	public static void main(String[] args) {
 		launch(args);

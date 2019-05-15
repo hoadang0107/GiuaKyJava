@@ -16,7 +16,7 @@ public class StackDM extends Application {
 		try {
 			this.primaryStage = primaryStage;
 			Parent root = FXMLLoader.load(getClass().getResource("/application/demo.fxml"));
-			primaryStage.setTitle("My Application");
+			primaryStage.setTitle("Stack");
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 

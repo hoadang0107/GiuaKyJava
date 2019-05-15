@@ -3,6 +3,7 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.btree.BTreeRender;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -28,7 +29,7 @@ public class MainController implements Initializable{
 	@FXML
 	public void showBTree() throws Exception{
 		
-		Main.startBTree();
+		BTreeRender.main(null);
 		
 	}
 }
