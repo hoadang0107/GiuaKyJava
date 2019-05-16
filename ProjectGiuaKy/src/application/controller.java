@@ -82,8 +82,8 @@ public class controller {
 	}
 	
 	@FXML public void backAction(ActionEvent even) throws Exception {
-		//StackDM.startMain();
-		Main.main(null);
+		StackDM.startMain();
+		//Main.main(null);
 	}
 	
 }
