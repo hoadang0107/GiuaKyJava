@@ -38,7 +38,7 @@ public class controller {
 		if (t.compareTo("") != 0) {
 			Label lb = new Label();
 			lb.setText(t);
-			lb.setPrefSize(65, 34);
+			lb.setPrefSize(80, 34);
 			lb.setAlignment(Pos.CENTER);
 			lb.setFont(new Font("Arial", 15));
 			lb.setStyle("-fx-background-color: red;");
@@ -57,6 +57,11 @@ public class controller {
 		if(!stack.isEmpty()) {
 		String s = stack.peak();
 		labl.setText("Peak element: "+s);
+		}else {
+			Alert alert= new Alert(Alert.AlertType.INFORMATION,"Stack trống",ButtonType.OK);
+			alert.showAndWait()
+			.filter(response -> response == ButtonType.OK)
+			.ifPresent(response->alert.close());
 		}
 
 	}
