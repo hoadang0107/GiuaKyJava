@@ -29,6 +29,6 @@
       </HBox>
    </bottom>
    <center>
-      <AnchorPane fx:id="Apane" prefHeight="0.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="pane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

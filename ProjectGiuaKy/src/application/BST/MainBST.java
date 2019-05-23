@@ -17,8 +17,8 @@ public class MainBST extends Application {
 		// TODO Auto-generated method stub
 		try {
 			MainBST.primaryStage = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("/application/BSTree.fxml"));
-			primaryStage.setTitle("Binary Search Tree");
+			Parent root = FXMLLoader.load(getClass().getResource("BST_Animation"));
+			primaryStage.setTitle("Binary Search Tree - AVL Tree");
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 

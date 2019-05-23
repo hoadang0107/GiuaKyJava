@@ -10,13 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
+
 public class Controller {
 	@FXML private BorderPane bPane;
-	@FXML private AnchorPane Apane;
+	@FXML private Pane pane;
 	@FXML private HBox hBox;
 	@FXML private TextField txt1; 
 	
@@ -36,6 +37,9 @@ public class Controller {
              invalidKey(txt1, "No key entered!");
          } else {
              try {
+//            	 String t = txt1.getText();
+//            	 Label lb = new Label();
+//            	 lb.setText(t);
                  int key = Integer.parseInt(txt1.getText());
                  if (BSTtree.search(key)) { // key is in the tree already
                      view.displayBSTTree();
@@ -46,6 +50,7 @@ public class Controller {
                      view.setStatus(key + " is inserted in the tree");
                      treeVal.add(key); // Adds value to HashSet for building AVL tree
                  }
+                 pane.getChildren().addAll(view);
                  txt1.setText("");
                  txt1.requestFocus();
              } catch (NumberFormatException ex) {

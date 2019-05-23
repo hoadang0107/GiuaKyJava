@@ -8,14 +8,11 @@ import java.util.ArrayList;
 	    /* Protected declarations */
 	    protected TreeNode<E> root;
 	    protected int size = 0;
-
 	    
-	    // Create default binary tree
-	   
+	    // Create default binary tree	   
 	    public BST() {
 	    }	   
 	    /*Returns true if the element is in the tree
-	     * @param e
 	     * @return boolean value
 	     */
 	    @Override
@@ -36,11 +33,8 @@ import java.util.ArrayList;
 	        return false;
 	    }
 
-	    /**
-	     * Insert element o into the binary tree Return true if the element is
-	     * inserted successfully
-	     *
-	     * @param e
+	    /*
+	     * Insert element o into the binary tree Return true if the element is inserted successfully
 	     * @return boolean value
 	     */
 	    @Override
@@ -59,7 +53,7 @@ import java.util.ArrayList;
 	                    parent = current;
 	                    current = current.right;
 	                } else {
-	                    return false; // Duplicate node not inserted
+	                    return false; // nút trùng lặp, ko được chèn
 	                }
 	            }
 	            // Create the new node and attach it to the parent node
@@ -73,17 +67,14 @@ import java.util.ArrayList;
 	        return true; // Element inserted
 	    }
 
-	    /**
+	    /*
 	     * Create new node protected method
-	     *
-	     * @param e
-	     * @return
 	     */
 	    protected TreeNode<E> createNewNode(E e) {
 	        return new TreeNode<>(e);
 	    }
 
-	    /**
+	    /*
 	     * Inorder traversal from the root
 	     */
 	    @Override
@@ -91,10 +82,9 @@ import java.util.ArrayList;
 	        inorder(root);
 	    }
 
-	    /**
+	    /*
 	     * Inorder traversal helper method from a subtree
-	     *
-	     * @param root
+	    
 	     */
 	    protected void inorder(TreeNode<E> root) {
 	        if (root == null) {
@@ -105,10 +95,8 @@ import java.util.ArrayList;
 	        inorder(root.right);
 	    }
 
-	    /**
+	    /*
 	     * Inner class tree node
-	     *
-	     * @param <E>
 	     */
 	    public static class TreeNode<E extends Comparable<E>> {
 
@@ -122,9 +110,8 @@ import java.util.ArrayList;
 	        }
 	    }
 
-	    /**
+	    /*
 	     * Get the number of nodes in the tree
-	     *
 	     * @return size
 	     */
 	    @Override
@@ -132,19 +119,16 @@ import java.util.ArrayList;
 	        return size;
 	    }
 
-	    /**
+	    /*
 	     * Returns the root of the tree
-	     *
 	     * @return root
 	     */
 	    public TreeNode<E> getRoot() {
 	        return root;
 	    }
 
-	    /**
+	    /*
 	     * Returns a path from the root leading to the specified element
-	     *
-	     * @param e
 	     * @return
 	     */
 	    public ArrayList<TreeNode<E>> path(E e) {
@@ -165,10 +149,9 @@ import java.util.ArrayList;
 	        return list; // Return an array of nodes
 	    }
 
-	    /**
+	    /*
 	     * Delete an element from the binary tree. Return true if the element is
 	     * deleted successfully Return false if the element is not in the tree
-	     *
 	     * @param e
 	     * @return
 	     */
@@ -262,14 +245,14 @@ import java.util.ArrayList;
 	            inorder(); // Traverse binary tree and store elements in list
 	        }
 
-	        /**
+	        /*
 	         * Inorder traversal from the root
 	         */
 	        private void inorder() {
 	            inorder(root);
 	        }
 
-	        /**
+	        /*
 	         * Inorder traversal from a subtree
 	         */
 	        private void inorder(TreeNode<E> root) {
@@ -281,7 +264,7 @@ import java.util.ArrayList;
 	            inorder(root.right);
 	        }
 
-	        /**
+	        /*
 	         * Next element for traversing?
 	         */
 	        @Override
@@ -292,7 +275,7 @@ import java.util.ArrayList;
 	            return false;
 	        }
 
-	        /**
+	        /*
 	         * Get the current element and move cursor to the next
 	         */
 	        @Override
@@ -300,7 +283,7 @@ import java.util.ArrayList;
 	            return list.get(current++);
 	        }
 
-	        /**
+	        /*
 	         * Remove the current element and refresh the list
 	         */
 	        @Override
@@ -311,7 +294,7 @@ import java.util.ArrayList;
 	        }
 	    }
 
-	    /**
+	    /*
 	     * Remove all elements from the tree
 	     */
 	    public void clear() {
