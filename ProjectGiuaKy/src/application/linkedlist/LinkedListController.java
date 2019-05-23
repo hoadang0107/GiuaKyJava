@@ -24,6 +24,7 @@ public class LinkedListController {
 	private AnchorPane anchor;
 	@FXML
 	TextField textf;
+	@FXML Label lbl;
 	Label lbHead,lbNull;
 
 	private MyLinkedList list = new MyLinkedList();
@@ -38,6 +39,12 @@ public class LinkedListController {
 	public void backOnAction(ActionEvent event) throws Exception {
 
 		LLDM.startMain();
+	}
+	@FXML
+	public void clearAction(ActionEvent event) throws Exception {
+		list.head = null;
+		draw();
+		lbl.setText("Linked List is null!");
 	}
 
 	@FXML
@@ -55,6 +62,7 @@ public class LinkedListController {
 			list.append(lb, s);
 			draw();
 			textf.setText("");
+			lbl.setText("Appended "+s+" to lineked list!");
 		}
 
 	}
@@ -67,7 +75,7 @@ public class LinkedListController {
 		Node current = list.head;
 		anchor.getChildren().removeAll(listLabel);
 		anchor.getChildren().removeAll(arr);
-		anchor.getChildren().removeAll(lbHead,lbNull);
+		anchor.getChildren().removeAll(lbHead, lbNull);
 		listLabel.clear();
 		arr.clear();
 		if (current != null) {
@@ -76,34 +84,36 @@ public class LinkedListController {
 			lbHead.setPrefSize(65, 34);
 			lbHead.setAlignment(Pos.CENTER);
 			lbHead.setFont(new Font("Arial", 14));
-			lbHead.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
+			lbHead.setBorder(
+					new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
 			lbHead.setText("Head");
 			AnchorPane.setTopAnchor(lbHead, y);
 			AnchorPane.setLeftAnchor(lbHead, x);
 			anchor.getChildren().add(lbHead);
-		
-		while (current != null) {
+
+			while (current != null) {
+				arrow = new Arrow(x + 65, y + 17, x + 125, y + 17);
+				arr.add(arrow);
+				x = x + 125;
+				listLabel.add(current.label);
+				AnchorPane.setTopAnchor(current.label, y);
+				AnchorPane.setLeftAnchor(current.label, x);
+				anchor.getChildren().addAll(arrow, current.label);
+				current = current.next;
+			}
 			arrow = new Arrow(x + 65, y + 17, x + 125, y + 17);
 			arr.add(arrow);
-			x = x + 125;
-			listLabel.add(current.label);
-			AnchorPane.setTopAnchor(current.label, y);
-			AnchorPane.setLeftAnchor(current.label, x);
-			anchor.getChildren().addAll(arrow, current.label);
-			current = current.next;
-		}
-		arrow = new Arrow(x + 65, y + 17, x + 125, y + 17);
-		arr.add(arrow);
-		lbNull = new Label();
-		lbNull.setText("Head");
-		lbNull.setAlignment(Pos.CENTER);
-		lbNull.setFont(new Font("Arial", 14));
-		lbNull.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-		lbNull.setText("NULL");
-		lbNull.setPrefSize(65, 34);
-		AnchorPane.setTopAnchor(lbNull, y);
-		AnchorPane.setLeftAnchor(lbNull, x+125);
-		anchor.getChildren().addAll(arrow,lbNull);
+			lbNull = new Label();
+			lbNull.setText("Head");
+			lbNull.setAlignment(Pos.CENTER);
+			lbNull.setFont(new Font("Arial", 14));
+			lbNull.setBorder(
+					new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
+			lbNull.setText("NULL");
+			lbNull.setPrefSize(65, 34);
+			AnchorPane.setTopAnchor(lbNull, y);
+			AnchorPane.setLeftAnchor(lbNull, x + 125);
+			anchor.getChildren().addAll(arrow, lbNull);
 		}
 
 	}
@@ -123,7 +133,7 @@ public class LinkedListController {
 			list.prepend(lb, s);
 			draw();
 			textf.setText("");
-
+			lbl.setText("Prepended "+s+" to lineked list!");
 		}
 
 	}
@@ -139,6 +149,7 @@ public class LinkedListController {
 			*/
 			draw();
 			textf.setText("");
+			lbl.setText("Deleted "+s+" from lineked list!");
 		}
 
 	}
