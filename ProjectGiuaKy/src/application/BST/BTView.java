@@ -31,7 +31,16 @@ public class BTView extends Pane {
         if (tree.getRoot() != null) {
             // Display tree recursively
             displayBSTTree(tree.getRoot(), getWidth() / 2, vGap,
-                    getWidth() / 4);
+                    getWidth() / 4,"");
+        }
+    }
+    
+    public void displayBSTTree(String s) {
+        this.getChildren().clear(); // Clear the pane
+        if (tree.getRoot() != null) {
+            // Display tree recursively
+            displayBSTTree(tree.getRoot(), getWidth() / 2, vGap,
+                    getWidth() / 4,s);
         }
     }
 
@@ -39,26 +48,30 @@ public class BTView extends Pane {
      * Display a subtree rooted at position (x, y)
      */
     private void displayBSTTree(BST.TreeNode<Integer> root,
-                                double x, double y, double hGap) {
+                                double x, double y, double hGap,String s) {
         if (root.left != null) {
             // Draw a line to the left node
             getChildren().add(new Line(x - hGap, y + vGap, x, y));
             // Draw the left subtree recursively
-            displayBSTTree(root.left, x - hGap, y + vGap, hGap / 2);
+            displayBSTTree(root.left, x - hGap, y + vGap, hGap / 2,s);
         }
 
         if (root.right != null) {
             // Draw a line to the right node
             getChildren().add(new Line(x + hGap, y + vGap, x, y));
             // Draw the right subtree recursively
-            displayBSTTree(root.right, x + hGap, y + vGap, hGap / 2);
+            displayBSTTree(root.right, x + hGap, y + vGap, hGap / 2,s);
         }
 
         // Display a node
+        
         Circle circle = new Circle(x, y, radius);
         circle.setFill(Color.YELLOW);
         circle.setStroke(Color.BLACK);
+        if(s.compareTo(root.element+"") == 0) {
+        	circle.setFill(Color.RED);
+        }
         getChildren().addAll(circle,
-                new Text(x - 4, y + 4, root.element + ""));
+                new Text(x - 8, y + 4, root.element + ""));
     }
 }

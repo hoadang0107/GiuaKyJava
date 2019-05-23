@@ -29,7 +29,7 @@ public class AVLView extends Pane {
                     getWidth() / 4);
         }
     }
-
+    
     /*
      * Display a subtree rooted at position (x, y)
      */
@@ -54,6 +54,6 @@ public class AVLView extends Pane {
         circle.setFill(Color.CYAN);
         circle.setStroke(Color.BLACK);
         getChildren().addAll(circle,
-                new Text(x - 4, y + 4, root.element + ""));
+                new Text(x - 8, y + 4, root.element + ""));
     }
 }

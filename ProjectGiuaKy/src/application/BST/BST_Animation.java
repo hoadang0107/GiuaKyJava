@@ -111,6 +111,25 @@ public class BST_Animation extends Application {
             }
         });
         btSearch.setOnAction(e -> {
+        	 if (v.emptyTextField(tfKey)) {
+                 invalidKey(tfKey, "No key entered!");
+             } else {
+                 try {
+                     int key = Integer.parseInt(tfKey.getText());
+                     if (!BSTtree.search(key)) { // key is not in the tree
+                         view.displayBSTTree();
+                         view.setStatus(key + " is not in the tree");
+                     } else {
+                    	 
+                    	 view.displayBSTTree(tfKey.getText());
+                         view.setStatus(key + " is in the tree");
+                         tfKey.setText("");
+                     }
+                        
+                 } catch (NumberFormatException ex) {
+                     invalidKey(tfKey, "Key must be an integer!");
+                 }
+             }
         	
         });
         btBalance.setOnAction(e -> {
@@ -153,6 +172,7 @@ public class BST_Animation extends Application {
         });
 
         // Create a scene and place the pane in the stage
+        this.primaryStage = primaryStage;
         Scene scene = new Scene(pane, 650, 350);
         primaryStage.setTitle("Binary Search Tree - AVL Tree"); // Set the stage title
         primaryStage.setScene(scene); // Place the scene in the stage

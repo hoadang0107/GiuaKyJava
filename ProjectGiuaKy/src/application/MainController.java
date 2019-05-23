@@ -29,7 +29,7 @@ public class MainController implements Initializable{
 	@FXML
 	public void showBTree() throws Exception{
 		
-		BTreeRender.main(null);
+		Main.startBTree();
 		
 	}
 }

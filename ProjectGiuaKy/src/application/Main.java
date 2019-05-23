@@ -1,5 +1,6 @@
 package application;
 
+import application.BST.BST_Animation;
 import application.linkedlist.LLDM;
 import application.linkedlist.LinkedListController;
 import javafx.application.Application;
@@ -38,10 +39,10 @@ public class Main extends Application {
 		
 	}
 	
-	/*public static void startBTree() throws Exception {
-		BtreeDM tree = new BtreeDM();
+	public static void startBTree() throws Exception {
+		BST_Animation tree = new BST_Animation();
 		tree.start(primaryStage);
-	}*/
+	}
 	
 	public static void main(String[] args) {
 		launch(args);
