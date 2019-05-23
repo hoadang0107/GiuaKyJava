@@ -14,8 +14,8 @@ import javafx.scene.text.Text;
 
 public class BTView extends Pane {
     private BST<Integer> tree = new BST<>();
-    private double radius = 15; // Tree node radius
-    private double vGap = 40; // Gap between two levels in a tree
+    private double radius = 20; // Tree node radius
+    private double vGap = 50; // Gap between two levels in a tree
 
     BTView(BST<Integer> tree) {
         this.tree = tree;

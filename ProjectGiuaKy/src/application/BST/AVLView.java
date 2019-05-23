@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
 
 public class AVLView extends Pane {
     private BST<Integer> tree = new BST<>();
-    private double radius = 15; // Tree node radius
+    private double radius = 20; // Tree node radius
     private double vGap = 50; // Gap between two levels in a tree
 
     AVLView(BST<Integer> tree) {
